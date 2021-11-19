@@ -5,8 +5,7 @@ import com.ksa.newsclientapp.data.model.APIResponse
 import retrofit2.Response
 
 class NewsRemoteDataSourceImpl(private val newsAPIService: NewsAPIService,
-                               private val country:String,
-                               private val page:Int):NewsRemoteDataSource {
+                              ):NewsRemoteDataSource {
 
     override suspend fun getTopHeadlines(country:String,page:Int): Response<APIResponse> {
 

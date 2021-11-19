@@ -1,4 +1,4 @@
-package com.ksa.newsclientapp.presentation
+package com.ksa.newsclientapp.presentation.viewmodel
 
 import android.app.Application
 import android.content.Context
@@ -7,7 +7,6 @@ import android.net.NetworkCapabilities
 import android.os.Build
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.ksa.newsclientapp.data.model.APIResponse
 import com.ksa.newsclientapp.data.util.Resource
