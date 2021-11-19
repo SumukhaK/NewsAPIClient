@@ -6,8 +6,8 @@ import com.ksa.newsclientapp.domain.repository.NewsRepository
 
 class GetNewsHeadlinesUseCase(private val newsRepository: NewsRepository) {
 
-suspend fun execute():Resource<APIResponse>{
+suspend fun execute(country:String,page:Int):Resource<APIResponse>{
 
-    return newsRepository.getNewsHeadlines()
+    return newsRepository.getNewsHeadlines(country ,page )
 }
 }

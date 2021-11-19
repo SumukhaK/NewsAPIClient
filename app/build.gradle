@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
+    id 'kotlin-kapt'
 }
 
 android {
@@ -47,7 +48,13 @@ dependencies {
     //coroutines and flow API
     implementation'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2'
     implementation'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
-
+    // ViewModel and livedata
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.0")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.4.0")
+    // Annotation processor
+    kapt("androidx.lifecycle:lifecycle-compiler:2.4.0")
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.4.0")
     testImplementation 'junit:junit:4.13.1'
     testImplementation 'com.squareup.okhttp3:mockwebserver:4.9.0'
     testImplementation "com.google.truth:truth:1.1"
