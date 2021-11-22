@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.ksa.newsclientapp.databinding.ActivityMainBinding
+import com.ksa.newsclientapp.presentation.adapter.NewsheadlinesAdapter
 import com.ksa.newsclientapp.presentation.viewmodel.NewsViewModel
 import com.ksa.newsclientapp.presentation.viewmodel.NewsViewModelFactory
 import dagger.hilt.android.AndroidEntryPoint
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     lateinit var factory: NewsViewModelFactory
     private lateinit var binding:ActivityMainBinding
     lateinit var viewModel: NewsViewModel
+    @Inject
+    lateinit var newsheadlinesAdapter: NewsheadlinesAdapter
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
