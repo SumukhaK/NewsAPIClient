@@ -13,7 +13,7 @@ class NewsheadlinesAdapter:RecyclerView.Adapter<NewsheadlinesAdapter.NewsViewHol
 
     private val callbacks =  object : DiffUtil.ItemCallback<Article>(){
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
-           return  oldItem.url == newItem.url
+            return  oldItem.url == newItem.url
         }
 
         override fun areContentsTheSame(oldItem: Article, newItem: Article): Boolean {
@@ -42,19 +42,30 @@ class NewsheadlinesAdapter:RecyclerView.Adapter<NewsheadlinesAdapter.NewsViewHol
 
 
 
-inner class NewsViewHolder(val binding: NewsListItemBinding):RecyclerView.ViewHolder(binding.root){
+    inner class NewsViewHolder(val binding: NewsListItemBinding):RecyclerView.ViewHolder(binding.root){
 
-    fun bind(article: Article){
-        binding.tvTitle.text = article.title
-        binding.tvDescription.text = article.description
-        binding.tvPublishedAt.text = article.publishedAt
-        binding.tvSource.text = article.source.name
+        fun bind(article: Article){
+            binding.tvTitle.text = article.title
+            binding.tvDescription.text = article.description
+            binding.tvPublishedAt.text = article.publishedAt
+            binding.tvSource.text = article.source.name
 
-        Glide.with(binding.ivArticleImage.context).load(article.urlToImage).into(binding.ivArticleImage)
+            Glide.with(binding.ivArticleImage.context).load(article.urlToImage).into(binding.ivArticleImage)
+
+            binding.root.setOnClickListener {
+                onItemClickListner?.let {
+                    it(article)
+                }
+            }
+        }
+
     }
 
-}
+    private var onItemClickListner : ((Article) -> Unit)? = null
 
+    fun setOnitemClicklistner(listener : (Article)->Unit){
 
+        onItemClickListner = listener
+    }
 
 }
